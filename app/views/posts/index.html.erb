@@ -1,6 +1,7 @@
 <p>投稿一覧</p>
 <% @posts.each do |post| %>
   <%= post.title %>
-  <%= post.body %><br>
+  <%= post.body %>
+  <%= link_to "投稿詳細", post_path(post) %><br>
 <% end %><br>
 <%= link_to "戻る", root_path %>
