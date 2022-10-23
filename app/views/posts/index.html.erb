@@ -1,2 +1,6 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<p>投稿一覧</p>
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %><br>
+<% end %><br>
+<%= link_to "戻る", root_path %>
