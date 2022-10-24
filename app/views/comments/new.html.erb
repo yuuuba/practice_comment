@@ -1,2 +1,18 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h2>投稿</h2>
+<%= @post.body %>
+
+<h2>コメントする</h2>
+<%= form_with model: [@post, @comment] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'コメント' %>
+<% end %>
+
+<h2>コメント一覧</h2>
+  <% @comments.each do |comment| %>
+    <%= comment.body %>
+    <%= link_to "#{comment.user.name}" , user_path(@user) %>
+  <% end %>
+
+<%= link_to "戻る", root_path %>

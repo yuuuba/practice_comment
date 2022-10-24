@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
   devise_for :users
+  resources :users, only: [:show]
 end

@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   def new
+    #@post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
     @comment = Comment.new
+    @user = current_user.id
   end
 
   def create
