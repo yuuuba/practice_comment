@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
+    @user = current_user.id
   end
 
   def new
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
     )
 
     if @post.save!
-      redirect_to root_path
+      redirect_to :back
     end
   end
 

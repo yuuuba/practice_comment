@@ -9,10 +9,4 @@
   <%= f.submit 'コメント' %>
 <% end %>
 
-<h2>コメント一覧</h2>
-  <% @comments.each do |comment| %>
-    <%= comment.body %>
-    <%= link_to "#{comment.user.name}" , user_path(@user) %>
-  <% end %>
-
-<%= link_to "戻る", root_path %>
+<%= link_to "戻る", :back %>
