@@ -1,0 +1,12 @@
+<h2>投稿</h2>
+<%= @post.body %>
+
+<h2>コメントする</h2>
+<%= form_with model: [@post, @comment] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'コメント' %>
+<% end %>
+
+<%= link_to "戻る", :back %>
