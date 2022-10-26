@@ -22,9 +22,10 @@ class PostsController < ApplicationController
       user_id: current_user.id
     )
 
-    if @post.save!
-      redirect_to :back
-    end
+    @post.save!
+    
+    redirect_to post_path(@post)
+    
   end
 
   def edit

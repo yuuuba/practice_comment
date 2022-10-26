@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root to: "pages#index"
   resources :posts
   resources :posts do
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
 
   # マイページのルーティング
   get 'users/:id/profile', to: 'users#show', as: 'user_profile'
-  #resources :users, only: [:show]
+  resources :users, only: [:show]
 end

@@ -1,14 +1,18 @@
+
 <%= @post.title %>
 <%= @post.body %>
 <% if @post.user == current_user %>
   <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
   <%= link_to '削除する', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger mr-3" %>
  <% end %>
+ <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark" %>
 <%= link_to "コメントする" , new_post_comment_path(@post)	%>
+
 
 <h2>コメント一覧</h2>
   <% @comments.each do |comment| %>
     <%= comment.body %>
+    <%= link_to "#{comment.user.name}" , user_profile_path(comment.user_id) %>
   <% end %><br>
 
   <%= link_to "投稿一覧", action: :index %>
