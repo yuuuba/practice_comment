@@ -15,6 +15,7 @@
     <div><%= link_to "投稿する", new_post_path %></div>
     <div><%= link_to "投稿一覧", posts_path %></div>
     <% if user_signed_in? %>
+    <div><%= link_to "マイページ", user_path(current_user.id), class: "text-white" %></div>  
     <%= link_to "ログイン", new_user_session_path  %>
     <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
     <%= link_to "新規登録", new_user_registration_path %>
